@@ -1,32 +1,35 @@
+import { ThemeProvider, DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
-import { useFonts } from 'expo-font';
-import { useEffect } from 'react';
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+	const colorScheme = useColorScheme();
+	const [loaded] = useFonts({
+		SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+	});
 
-  console.log({colorScheme});
+	console.log({ colorScheme });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+	useEffect(() => {
+		if (loaded) {
+			SplashScreen.hideAsync();
+		}
+	}, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
+	if (!loaded) {
+		return null;
+	}
 
-  return (
-    <Stack>
-      <Stack.Screen name="index" />
-    </Stack>
-  );
+	return (
+		<ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+			<Stack>
+				<Stack.Screen name="index" />
+			</Stack>
+		</ThemeProvider>
+	);
 }
