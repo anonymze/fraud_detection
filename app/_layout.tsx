@@ -11,7 +11,7 @@ export default function RootLayout() {
 	// light by default
 	// TODO
 	// let colorScheme = useColorScheme() ?? "light";
-	let colorScheme: "light" = "light";
+	const colorScheme = "light" as const;
 	const [loaded] = useFonts({
 		SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
 	});
@@ -43,7 +43,7 @@ export default function RootLayout() {
 				},
 				headerRight(_) {
 					return (
-						<View style={{...styles.backgroundImage, right: 25}}>
+						<View style={{ ...styles.backgroundImage, right: 25 }}>
 							<Image source={require("@/assets/images/logo-2.png")} style={styles.headerImage} />
 						</View>
 					);
@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "white",
 		borderRadius: 5,
 		paddingHorizontal: 15,
-		paddingVertical: 25
+		paddingVertical: 25,
 	},
 });
