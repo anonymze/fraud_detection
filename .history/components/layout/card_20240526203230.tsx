@@ -10,7 +10,7 @@ export default function Card({ title, imageUrl }: CardProps) {
 	return (
 		<View style={stylesCard.container}>
 			<Text style={stylesCard.title}>{title}</Text>
-			<Image source={require("@/assets/images/logo-1.png")} />
+			<Image resizeMode="contain" source={require("@/assets/images/logo-1.png")} />
 		</View>
 	)
 }
