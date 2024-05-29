@@ -10,7 +10,7 @@ export default function HairCare() {
 	return (
 		<Container>
 			<SearchInput
-				placeholder={i18nDefault("HAIR_CARE")}
+				placeholder={i18nDefault("SEARCH_PRODUCT")}
 				onChangeText={(text) => {
 					if (!text) return;
 

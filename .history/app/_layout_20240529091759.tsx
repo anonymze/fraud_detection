@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 25,
 	},
 	customTitleContainer: {
-		height: 120,
+		height: 100,
 		alignItems: "center",
 		justifyContent: "center",
 		backgroundColor: "#fff",

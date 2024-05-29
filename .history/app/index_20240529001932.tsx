@@ -37,25 +37,25 @@ export default function Index() {
 			>
 				<Card
 					onPress={() => router.push("/makeup")}
-					title={i18nDefault("MAKEUP")}
+					title={i18nDefault("SEARCH_PRODUCT")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#faeaeb"
 				/>
 				<Card
 					onPress={() => router.push("/skin-care")}
-					title={i18nDefault("SKIN_CARE")}
+					title={i18nDefault("SEARCH_PRODUCT")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#f3faf2"
 				/>
 				<Card
 					onPress={() => router.push("/hair-care")}
-					title={i18nDefault("HAIR_CARE")}
+					title={i18nDefault("SEARCH_PRODUCT")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#fdf8fd"
 				/>
 				<Card
 					onPress={() => router.push("/hair-color")}
-					title={i18nDefault("HAIR_COLOR")}
+					title={i18nDefault("SEARCH_PRODUCT")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#fef0e2"
 				/>

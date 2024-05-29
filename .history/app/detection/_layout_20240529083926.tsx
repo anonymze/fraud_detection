@@ -1,7 +1,7 @@
 import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
-import { Image, StyleSheet, Text, View, useColorScheme } from "react-native";
+import { Image, StyleSheet, View, useColorScheme } from "react-native";
 import { colors } from "@/styles/colors";
 
 // Prevent the splash screen from auto-hiding
@@ -36,7 +36,7 @@ export default function RootLayout() {
 					fontWeight: "bold",
 				},
 				headerLeft: (_) => {
-					return <Image source={require("@/assets/images/logo-1.png")} style={[styles.headerImage, { left: 25 }]} />;
+					return <Image source={require("@/assets/images/logo-1.png")} style={[styles.headerImage, {left: 25} ]} />;
 				},
 				headerRight(_) {
 					return (
@@ -48,25 +48,9 @@ export default function RootLayout() {
 				title: "",
 			}}
 		>
-			<Stack.Screen name="index" />
-			<Stack.Screen
-				name="detection"
-				options={{
-					header: (props) => (
-						<View
-							style={styles.customTitleContainer}
-							{...props}
-						>
-							<Text style={styles.customTitleText}>
-								Take a picture
-							</Text>
-							<Text style={styles.customTitleText}>
-								of your product
-							</Text>
-						</View>
-					),
-				}}
-			/>
+			<Stack.Screen name="detection" options={{
+				headerShown: false,
+			}} />
 		</Stack>
 	);
 }
@@ -86,17 +70,5 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 		paddingHorizontal: 15,
 		paddingVertical: 25,
-	},
-	customTitleContainer: {
-		height: 120,
-		alignItems: "center",
-		justifyContent: "center",
-		backgroundColor: "#fff",
-	},
-	customTitleText: {
-		fontSize: 26,
-		fontWeight: "bold",
-		textAlign: "center",
-		color: "#000",
 	},
 });

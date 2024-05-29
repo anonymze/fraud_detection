@@ -6,11 +6,11 @@ import { i18nDefault } from "@/i18n/translations";
 import { router } from "expo-router";
 import { View } from "react-native";
 
-export default function HairCare() {
+export default function SkinCare() {
 	return (
 		<Container>
 			<SearchInput
-				placeholder={i18nDefault("HAIR_CARE")}
+				placeholder={i18nDefault("SEARCH_PRODUCT")}
 				onChangeText={(text) => {
 					if (!text) return;
 

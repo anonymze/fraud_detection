@@ -54,13 +54,13 @@ export default function RootLayout() {
 				options={{
 					header: (props) => (
 						<View
-							style={styles.customTitleContainer}
+							style={{ height: 100, alignItems: "center", justifyContent: "center", backgroundColor: "#fff" }}
 							{...props}
 						>
-							<Text style={styles.customTitleText}>
+							<Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "center", color: "#000" }}>
 								Take a picture
 							</Text>
-							<Text style={styles.customTitleText}>
+							<Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "center", color: "#000" }}>
 								of your product
 							</Text>
 						</View>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 25,
 	},
 	customTitleContainer: {
-		height: 120,
+		height: 100,
 		alignItems: "center",
 		justifyContent: "center",
 		backgroundColor: "#fff",
