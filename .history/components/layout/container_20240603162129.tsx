@@ -1,4 +1,3 @@
-import { colors } from "@/styles/colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
@@ -12,7 +11,7 @@ export default function Container({ children }: PropsWithChildren) {
 				contentContainerStyle={styles.containerContent}
 			>
 				<LinearGradient
-					colors={[colors.light.background, "#fff"]}
+					colors={["#f1fefe", "#fff"]}
 					style={styles.background}
 				/>
 				{children}

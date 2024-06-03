@@ -12,7 +12,7 @@ export default function Container({ children }: PropsWithChildren) {
 				contentContainerStyle={styles.containerContent}
 			>
 				<LinearGradient
-					colors={[colors.light.background, "#fff"]}
+					colors={[colors.light.blueCyan, "#fff"]}
 					style={styles.background}
 				/>
 				{children}

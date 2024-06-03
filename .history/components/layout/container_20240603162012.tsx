@@ -1,4 +1,3 @@
-import { colors } from "@/styles/colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
@@ -11,10 +10,10 @@ export default function Container({ children }: PropsWithChildren) {
 				style={styles.container}
 				contentContainerStyle={styles.containerContent}
 			>
-				<LinearGradient
-					colors={[colors.light.background, "#fff"]}
+				{/* <LinearGradient
+					colors={["#f1fefe", "#fff"]}
 					style={styles.background}
-				/>
+				/> */}
 				{children}
 			</ScrollView>
 		</GestureHandlerRootView>

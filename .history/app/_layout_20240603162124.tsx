@@ -43,8 +43,8 @@ export default function RootLayout() {
 						</View>
 					);
 				},
-				title: "",
 				animation: "fade_from_bottom",
+
 			}}
 		>
 			<Stack.Screen name="index" />
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
 	backgroundImage: {
 		justifyContent: "center",
 		alignItems: "center",
-		top: 10,
+		top: 20,
 		backgroundColor: "#fff",
 		borderRadius: 5,
 		paddingHorizontal: 6,

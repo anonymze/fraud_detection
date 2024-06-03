@@ -2,8 +2,9 @@ export const colors = {
 	light: {
 		tint: "#000",
 		tintHeader: "#fff",
-		background: "#f1fefe",
+		background: "#fff",
 		backgroundHeader: "#000",
+		blueCyan: "#f1fefe",
 		danger: "#ff5252",
 		success: "#4dcf81",
 	},
@@ -16,4 +17,12 @@ export const colors = {
 		danger: "#ff5252",
 		success: "#4dcf81",
 	},
+	// dark: {
+	// 	tint: "#fff",
+	// 	tintHeader: "#000",
+	// 	background: "#000",
+	// 	backgroundHeader: "#fff",
+	// 	danger: "#ff5252",
+	// 	success: "#4dcf81",
+	// },
 } as const;

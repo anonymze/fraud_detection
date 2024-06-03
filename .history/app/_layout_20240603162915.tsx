@@ -43,7 +43,7 @@ export default function RootLayout() {
 						</View>
 					);
 				},
-				title: "",
+				title: undefined,
 				animation: "fade_from_bottom",
 			}}
 		>

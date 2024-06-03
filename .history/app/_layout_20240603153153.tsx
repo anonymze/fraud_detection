@@ -29,22 +29,22 @@ export default function RootLayout() {
 			screenOptions={{
 				headerShown: true,
 				headerShadowVisible: false,
+				headerTransparent: true,
 				headerStyle: {
 					backgroundColor: colors[colorScheme].backgroundHeader,
 				},
-				headerTintColor: colors[colorScheme].tintHeader,
+				// headerTintColor: colors[colorScheme].tintHeader,
 				headerLeft: (_) => {
 					return <Image source={require("@/assets/images/logo-1.png")} style={[styles.headerImage, { left: spaceExterHeader }]} />;
 				},
 				headerRight(_) {
 					return (
-						<View style={[styles.backgroundImage, {right: spaceExterHeader}]}>
+						<View style={{ ...styles.backgroundImage, right: spaceExterHeader }}>
 							<Image source={require("@/assets/images/logo-2.png")} style={styles.headerImage} />
 						</View>
 					);
 				},
 				title: "",
-				animation: "fade_from_bottom",
 			}}
 		>
 			<Stack.Screen name="index" />
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
 	backgroundImage: {
 		justifyContent: "center",
 		alignItems: "center",
-		top: 10,
+		top: 20,
 		backgroundColor: "#fff",
 		borderRadius: 5,
 		paddingHorizontal: 6,
