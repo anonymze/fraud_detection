@@ -16,15 +16,21 @@ export default {
 	description: "My app description",
 	platforms: ["ios", "android", "web"],
 	// background color of the app behind the react view (need expo-system-ui)
-	backgroundColor: "transparent",
+	backgroundColor: "#f1fefe",
 	// an array of file glob strings which point to assets that will be bundled within your standalone app binary
 	assetBundlePatterns: ["./assets/**/*"],
 	// will change the color navigation bar for multitasking (only android right now)
-	primaryColor: "#883322",
+	primaryColor: "#f1fefe",
 	splash: {
-		backgroundColor: "#886666",
+		backgroundColor: "#f1fefe",
 		image: "./assets/splash.png",
 		resizeMode: "contain",
+	},
+	androidStatusBar: {
+		backgroundColor: "#000",
+		barStyle: "dark-content",
+		hidden: false,
+		translucent: false,
 	},
 	android: {
 		// build number, you need to increment it if you want to submit another build to the stores

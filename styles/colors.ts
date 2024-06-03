@@ -10,9 +10,8 @@ export const colors = {
 	dark: {
 		tint: "#000",
 		tintHeader: "#fff",
-		background: "#fff",
+		background: "#f1fefe",
 		backgroundHeader: "#000",
-		blueCyan: "#f1fefe",
 		danger: "#ff5252",
 		success: "#4dcf81",
 	},
