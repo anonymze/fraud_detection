@@ -9,7 +9,6 @@ const isValidI18n = (value: string | null): value is I18n => {
 }
 
 const defaultLang = "en" as const;
-
 const deviceLanguageCode = getLocales()[0]?.languageCode;
 const validatedLanguage = isValidI18n(deviceLanguageCode) ? deviceLanguageCode : defaultLang;
 

@@ -22,8 +22,8 @@ export default {
 	// will change the color navigation bar for multitasking (only android right now)
 	primaryColor: "#f1fefe",
 	splash: {
-		backgroundColor: "#f1fefe",
-		image: "./assets/splash.png",
+		backgroundColor: "#000",
+		image: "./resources/splash.png",
 		resizeMode: "contain",
 	},
 	androidStatusBar: {
@@ -33,6 +33,10 @@ export default {
 		translucent: false,
 	},
 	android: {
+		permissions: [
+			// "android.permission.CAMERA",
+		],
+		package: "com.fraud_detection.app",
 		// build number, you need to increment it if you want to submit another build to the stores
 		versionCode: 1,
 		config: {
@@ -41,7 +45,7 @@ export default {
 		},
 		// logo app, in iOs you have to use the icon property
 		adaptiveIcon: {
-			// foregroundImage: "./assets/adaptive-icon.png",
+			foregroundImage: "./resources/adaptive-icon.png",
 			backgroundColor: "#333999",
 		},
 		// intent filters are used to specify the type of intents that your app can handle, it's a messaging object you can use to request action from other apps
@@ -64,9 +68,13 @@ export default {
 		// ],
 	},
 	ios: {
+		bundleIdentifier: "com.fraud-detection.app",
+		infoPlist: {
+			//  NSCameraUsageDescription: "This app uses the camera to scan documents.",
+		},
 		// build number, you need to increment it if you want to submit another build to the stores
 		buildNumber: "1",
-		// icon: "./assets/icon.png",
+		icon: "./resources/icon.png",
 		supportsTablet: true,
 		config: {
 			// you can config api keys for popular sdk like google maps...
@@ -75,5 +83,18 @@ export default {
 	},
 	// All values in extra will be passed to your app.
 	extra: {},
-	plugins: ["expo-router", "expo-localization"],
+	plugins: [
+		"expo-router",
+		"expo-localization",
+		[
+			"react-native-vision-camera",
+			{
+				cameraPermissionText: "$(PRODUCT_NAME) needs access to your Camera.",
+
+				// optionally, if you want to record audio:
+				// enableMicrophonePermission: true,
+				// microphonePermissionText: "$(PRODUCT_NAME) needs access to your Microphone.",
+			},
+		],
+	],
 } satisfies ExpoConfig;

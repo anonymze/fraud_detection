@@ -17,7 +17,7 @@ export default function SkinCare() {
 					console.log(text);
 				}}
 			/>
-			
+
 			<Breadcrump title={i18nDefault("HAIR_CARE")} />
 
 			<View
@@ -31,26 +31,26 @@ export default function SkinCare() {
 				}}
 			>
 				<Card
-					onPress={() => router.push("/hair-care")}
-					title={i18nDefault("SEARCH_PRODUCT")}
+					onPress={() => router.push("/hair-care/list")}
+					title={i18nDefault("EYE")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#faeaeb"
 				/>
 				<Card
-					onPress={() => router.push("/hair-care")}
-					title={i18nDefault("SEARCH_PRODUCT")}
+					onPress={() => router.push("/hair-care/list")}
+					title={i18nDefault("LIPS")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#f3faf2"
 				/>
 				<Card
-					onPress={() => router.push("/hair-care")}
-					title={i18nDefault("SEARCH_PRODUCT")}
+					onPress={() => router.push("/hair-care/list")}
+					title={i18nDefault("FACE")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#fdf8fd"
 				/>
 				<Card
-					onPress={() => router.push("/hair-care")}
-					title={i18nDefault("SEARCH_PRODUCT")}
+					onPress={() => router.push("/hair-care/list")}
+					title={i18nDefault("NAIL")}
 					imageUrl={require("@/assets/images/logo-1.png")}
 					background="#fef0e2"
 				/>

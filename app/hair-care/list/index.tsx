@@ -3,8 +3,10 @@ import Card from "@/components/card";
 import Container from "@/components/layout/container";
 import SearchInput from "@/components/search-input";
 import { i18nDefault } from "@/i18n/translations";
+import data from "@/utils/data";
 import { router } from "expo-router";
 import { View } from "react-native";
+import { Camera } from "react-native-vision-camera";
 
 export default function HairCare() {
 	return (
@@ -17,7 +19,7 @@ export default function HairCare() {
 					console.log(text);
 				}}
 			/>
-			
+
 			<Breadcrump title={i18nDefault("HAIR_CARE")} />
 
 			<View
@@ -30,31 +32,23 @@ export default function HairCare() {
 					marginTop: 20,
 				}}
 			>
-				<Card
-					onPress={() => router.push("/hair-care/list")}
-					title={i18nDefault("EYE")}
-					imageUrl={require("@/assets/images/logo-1.png")}
-					background="#faeaeb"
-				/>
-				<Card
-					onPress={() => router.push("/hair-care/list")}
-					title={i18nDefault("LIPS")}
-					imageUrl={require("@/assets/images/logo-1.png")}
-					background="#f3faf2"
-				/>
-				<Card
-					onPress={() => router.push("/hair-care/list")}
-					title={i18nDefault("FACE")}
-					imageUrl={require("@/assets/images/logo-1.png")}
-					background="#fdf8fd"
-				/>
-				<Card
-					onPress={() => router.push("/hair-care/list")}
-					title={i18nDefault("NAIL")}
-					imageUrl={require("@/assets/images/logo-1.png")}
-					background="#fef0e2"
-				/>
+				{data.map((item) => (
+					<Card
+						key={item.id}
+						onPress={() => {
+							verifyCameraPermissionsAndAvailability();
+							router.push("/hair-care/list")
+						}}
+						title={item.label}
+						imageUrl={item.image}
+						background={item.backgroundColor}
+					/>
+				))}
 			</View>
 		</Container>
 	);
+}
+
+const verifyCameraPermissionsAndAvailability = async () => {
+	console.log(Camera.getCameraPermissionStatus());
 }
