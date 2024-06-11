@@ -17,3 +17,8 @@ web-build/
 
 android/
 ios/
+
+# Expo
+.expo
+dist/
+web-build/
