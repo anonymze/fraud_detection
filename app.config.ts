@@ -90,10 +90,22 @@ export default {
 			"react-native-vision-camera",
 			{
 				cameraPermissionText: "$(PRODUCT_NAME) needs access to your Camera.",
-
 				// optionally, if you want to record audio:
 				// enableMicrophonePermission: true,
 				// microphonePermissionText: "$(PRODUCT_NAME) needs access to your Microphone.",
+			},
+		],
+		[
+			'expo-build-properties',
+			{
+				android: {
+					// compileSdkVersion: 34,
+					// targetSdkVersion: 34,
+					// buildToolsVersion: '34.0.0',
+				},
+				ios: {
+					// deploymentTarget: '13.4',
+				},
 			},
 		],
 	],
