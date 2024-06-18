@@ -7,5 +7,6 @@ Enter this command line : sudo xcode-select --switch /Applications/Xcode.app to 
 
 npx expo-env-info
 npx react-native doctor
+npx expo-doctor
 
 
