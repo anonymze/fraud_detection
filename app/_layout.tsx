@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { Image, StyleSheet, Text, View, useColorScheme } from "react-native";
 import { colors } from "@/styles/colors";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -25,48 +26,48 @@ export default function RootLayout() {
 	}
 
 	return (
-		<Stack
-			screenOptions={{
-				headerShown: true,
-				headerShadowVisible: false,
-				headerStyle: {
-					backgroundColor: colors[colorScheme].backgroundHeader,
-				},
-				headerTintColor: colors[colorScheme].tintHeader,
-				headerLeft: (_) => {
-					return <Image source={require("@/assets/images/logo-1.png")} style={[styles.headerImage, { left: spaceExterHeader }]} />;
-				},
-				headerRight(_) {
-					return (
-						<View style={[styles.backgroundImage, {right: spaceExterHeader}]}>
-							<Image source={require("@/assets/images/logo-2.png")} style={styles.headerImage} />
-						</View>
-					);
-				},
-				title: "",
-				animation: "fade_from_bottom",
-			}}
-		>
-			<Stack.Screen name="index" />
-			<Stack.Screen
-				name="detection"
-				options={{
-					header: (props) => (
-						<View
-							style={styles.customTitleContainer}
-							{...props}
-						>
-							<Text style={styles.customTitleText}>
-								Take a picture
-							</Text>
-							<Text style={styles.customTitleText}>
-								of your product
-							</Text>
-						</View>
-					),
+			<Stack
+				screenOptions={{
+					headerShown: true,
+					headerShadowVisible: false,
+					headerStyle: {
+						backgroundColor: colors[colorScheme].backgroundHeader,
+					},
+					headerTintColor: colors[colorScheme].tintHeader,
+					headerLeft: (_) => {
+						return (
+							<Image
+								source={require("@/assets/images/logo-1.png")}
+								style={[styles.headerImage, { left: spaceExterHeader }]}
+							/>
+						);
+					},
+					headerRight(_) {
+						return (
+							<View style={[styles.backgroundImage, { right: spaceExterHeader }]}>
+								<Image source={require("@/assets/images/logo-2.png")} style={styles.headerImage} />
+							</View>
+						);
+					},
+					title: "",
+					animation: "fade_from_bottom",
 				}}
-			/>
-		</Stack>
+			>
+				<Stack.Screen name="index" />
+				<Stack.Screen
+					name="detection"
+					options={{
+						header: (props) => (
+							<SafeAreaView style={{ backgroundColor: "#fff" }} edges={["top"]}>
+								<View style={styles.customTitleContainer} {...props}>
+									<Text style={styles.customTitleText}>Take a picture</Text>
+									<Text style={styles.customTitleText}>of your product</Text>
+								</View>
+							</SafeAreaView>
+						),
+					}}
+				/>
+			</Stack>
 	);
 }
 
