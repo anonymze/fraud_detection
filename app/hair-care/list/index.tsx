@@ -10,7 +10,6 @@ import { openSettings } from "expo-linking";
 import { router } from "expo-router";
 
 export default function HairCare() {
-	console.log('heyyyy');
 	return (
 		<Container>
 			<SearchInput
@@ -41,7 +40,6 @@ export default function HairCare() {
 							const showCamera = await verifyCameraPermissionsAndAvailability();
 							if (!showCamera) return;
 
-							console.log("launch cam");
 							router.push("/detection");
 						}}
 						title={item.label}

@@ -1,9 +1,12 @@
-import { SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Stack, router } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
-import { Image, StyleSheet, Text, View, useColorScheme } from "react-native";
+import { GestureHandlerRootView, TouchableOpacity } from "react-native-gesture-handler";
+import { Button, Image, StyleSheet, Text, View, useColorScheme } from "react-native";
 import { colors } from "@/styles/colors";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { RootSiblingParent } from "react-native-root-siblings";
+import { Ionicons } from "@expo/vector-icons";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -26,48 +29,63 @@ export default function RootLayout() {
 	}
 
 	return (
-			<Stack
-				screenOptions={{
-					headerShown: true,
-					headerShadowVisible: false,
-					headerStyle: {
-						backgroundColor: colors[colorScheme].backgroundHeader,
-					},
-					headerTintColor: colors[colorScheme].tintHeader,
-					headerLeft: (_) => {
-						return (
-							<Image
-								source={require("@/assets/images/logo-1.png")}
-								style={[styles.headerImage, { left: spaceExterHeader }]}
-							/>
-						);
-					},
-					headerRight(_) {
-						return (
-							<View style={[styles.backgroundImage, { right: spaceExterHeader }]}>
-								<Image source={require("@/assets/images/logo-2.png")} style={styles.headerImage} />
-							</View>
-						);
-					},
-					title: "",
-					animation: "fade_from_bottom",
-				}}
-			>
-				<Stack.Screen name="index" />
-				<Stack.Screen
-					name="detection"
-					options={{
-						header: (props) => (
-							<SafeAreaView style={{ backgroundColor: "#fff" }} edges={["top"]}>
-								<View style={styles.customTitleContainer} {...props}>
-									<Text style={styles.customTitleText}>Take a picture</Text>
-									<Text style={styles.customTitleText}>of your product</Text>
+		<RootSiblingParent>
+			<GestureHandlerRootView>
+				<Stack
+					screenOptions={{
+						headerShown: true,
+						headerShadowVisible: false,
+						headerStyle: {
+							backgroundColor: colors[colorScheme].backgroundHeader,
+						},
+						headerTintColor: colors[colorScheme].tintHeader,
+						headerLeft: (_) => {
+							return (
+								<Image
+									source={require("@/assets/images/logo-1.png")}
+									style={[styles.headerImage, { left: spaceExterHeader }]}
+								/>
+							);
+						},
+						headerRight(_) {
+							return (
+								<View style={[styles.backgroundImage, { right: spaceExterHeader }]}>
+									<Image source={require("@/assets/images/logo-2.png")} style={styles.headerImage} />
 								</View>
-							</SafeAreaView>
-						),
+							);
+						},
+						title: "",
+						animation: "fade_from_bottom",
 					}}
-				/>
-			</Stack>
+				>
+					<Stack.Screen
+						name="detection"
+						options={{
+							header: (props) => (
+								<SafeAreaView
+									style={{ backgroundColor: colors[colorScheme].light }}
+									edges={["top"]}
+								>
+									<View style={styles.customTitleContainer} {...props}>
+										<Text style={styles.customTitleText}>Take a picture</Text>
+										<Text style={styles.customTitleText}>of your product</Text>
+									</View>
+
+									<TouchableOpacity
+										style={styles.closeBtn}
+										onPress={() => {
+											router.back();
+										}}
+									>
+										<Ionicons name="close" size={28} color={colors[colorScheme].dark} />
+									</TouchableOpacity>
+								</SafeAreaView>
+							),
+						}}
+					/>
+				</Stack>
+			</GestureHandlerRootView>
+		</RootSiblingParent>
 	);
 }
 
@@ -98,5 +116,10 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 		color: "#000",
+	},
+	closeBtn: {
+		position: "absolute",
+		bottom: 80,
+		right: 20
 	},
 });

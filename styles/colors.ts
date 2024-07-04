@@ -6,6 +6,8 @@ export const colors = {
 		backgroundHeader: "#000",
 		danger: "#ff5252",
 		success: "#4dcf81",
+		light: "#fff",
+		dark: "#000",
 	},
 	dark: {
 		tint: "#000",
@@ -14,5 +16,7 @@ export const colors = {
 		backgroundHeader: "#000",
 		danger: "#ff5252",
 		success: "#4dcf81",
+		light: "#fff",
+		dark: "#000",
 	},
 } as const;
